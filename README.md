@@ -4,24 +4,25 @@
 
 ## 特点
 
-- 启动时自动请求管理员权限（读取 SMART / CPU / 主板温度需要）
+- 启动时自动请求管理员权限（读取 SMART / 传感器需要）
 - 目标 **.NET Framework 4.8**（Windows 10/11 一般自带）
-- 界面只显示结论：良好 / 有警告 / 不良好
-- CPU、主板温度通过硬件传感器读取（LibreHardwareMonitor）
+- 界面结论：良好 / 有警告 / 不良
+- CPU、主板温度通过 LibreHardwareMonitor 读传感器
 
-## 使用
+## 下载与使用
 
-把整个 `dist` 文件夹拷走即可（需同目录 DLL）：
+1. 到 [Releases](https://github.com/fig3458/pc-health/releases) 下载 `PcHealth-windows-x64-v1.0.0.zip`
+2. **解压整个文件夹**（需同目录 DLL）
+3. 双击 `PcHealth.exe`，UAC 点「是」
+
+包含文件示例：
 
 - `PcHealth.exe`
 - `LibreHardwareMonitorLib.dll`
 - `HidSharp.dll`
-- `System.CodeDom.dll`
-- `PcHealth.exe.config`
+- 其他依赖 DLL / config
 
-双击运行，在 UAC 提示中点“是”。
-
-## 编译
+## 自行编译
 
 ```powershell
 dotnet build -c Release
@@ -30,4 +31,10 @@ Copy-Item .\bin\Release\net48\* .\dist\ -Force
 
 ## 说明
 
-寿命为粗估。个别主板芯片不受支持时，CPU/主板可能显示“暂无读数”。杀软有时会拦截硬件监控组件，可加入白名单。
+- 寿命为粗估，仅供参考
+- 个别主板芯片不受支持时，CPU/主板可能显示「暂无读数」
+- 杀软有时会拦截硬件监控组件，可加白名单
+
+## 许可证
+
+[MIT](LICENSE)
